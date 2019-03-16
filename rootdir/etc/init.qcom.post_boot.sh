@@ -2683,7 +2683,6 @@ case "$target" in
 esac
 
 case "$target" in
-
     "trinket")
 
         if [ -f /sys/devices/soc0/soc_id ]; then
@@ -2750,8 +2749,8 @@ case "$target" in
             do
                 for cpubw in $device/*cpu-cpu-ddr-bw/devfreq/*cpu-cpu-ddr-bw
                 do
-                   echo "bw_hwmon" > $cpubw/governor
-                   echo 50 > $cpubw/polling_interval
+                    echo "bw_hwmon" > $cpubw/governor
+                    echo 50 > $cpubw/polling_interval
                     echo 762 > $cpubw/min_freq
                     echo "2288 3440 4173 5195 5859 7759 10322 11863 13763" > $cpubw/bw_hwmon/mbps_zones
                     echo 4 > $cpubw/bw_hwmon/sample_ms
@@ -2790,12 +2789,12 @@ case "$target" in
             echo 0 > /proc/sys/kernel/sched_boost
 
             # Turn on sleep modes.
-	   echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-pc/idle_enabled
-	   echo N > /sys/module/lpm_levels/system/perf/perf-l2-pc/idle_enabled
-	   echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
-	   echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
-	   echo N > /sys/module/lpm_levels/system/system-wfi/idle_enabled
-	   echo N > /sys/module/lpm_levels/system/system-pc/idle_enabled
+	    echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-pc/idle_enabled
+	    echo N > /sys/module/lpm_levels/system/perf/perf-l2-pc/idle_enabled
+	    echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
+	    echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
+	    echo N > /sys/module/lpm_levels/system/system-wfi/idle_enabled
+	    echo N > /sys/module/lpm_levels/system/system-pc/idle_enabled
             echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
             ;;
